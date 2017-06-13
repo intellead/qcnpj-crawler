@@ -3,9 +3,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 var Empresa = require('../src/Empresa');
 
-
 class Qcnpj {
-
     constructor(link) {
         this.link = link;
     }

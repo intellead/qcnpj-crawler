@@ -19,16 +19,14 @@ class Google {
             }
             if(response.statusCode === 200) {
                 var $ = cheerio.load(body);
-                $("h3").each(function() {
-                    var googleHref = $(this).find("a").attr("href");
-                    if (googleHref != undefined) {
-                        var link1 = googleHref.substr(googleHref.indexOf("http"), googleHref.length);
-                        var link = link1.substr(0, link1.indexOf("&sa="));
-                        if (link.includes('qcnpj')) {
-                            return callback(link);
-                        }
+                var googleHref = $("h3").find("a").attr("href");
+                if (googleHref != undefined) {
+                    var link1 = googleHref.substr(googleHref.indexOf("http"), googleHref.length);
+                    var link = link1.substr(0, link1.indexOf("&sa="));
+                    if (link.includes('qcnpj')) {
+                        callback(link);
                     }
-                });
+                }
             }
         });
     }

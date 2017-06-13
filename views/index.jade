@@ -3,10 +3,5 @@ extends layout
 block content
   h1= title
   p #{title}
-  p Busca no Google
-  ul
-    each val in content
-      li= val
-  p Dados da empresa segundo QCNPJ
-    each val in companyContent
-      li= val
+  p Para utilizar esse serviço é necessário passar o atributo "nomeDaEmpresa"
+  p Ex: https://qcnpj-crawler.herokuapp.com/?nomeDaEmpresa=Silva Ltda

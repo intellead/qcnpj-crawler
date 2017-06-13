@@ -8,13 +8,18 @@ var Google = require('../src/Google');
 router.get('/', function(req, res, next) {
     var params = url.parse(req.url, true).query;
     var nomeDaEmpresa = params.nomeDaEmpresa;
+    if (nomeDaEmpresa == '' || nomeDaEmpresa == undefined) {
+        return res.render('index', { title: 'qcnpj-crawler' });
+    }
     var google = new Google(nomeDaEmpresa);
     google.searchQcnpjLink(function(linkQcnpjDaEmpresa) {
         var qcnpj = new Qcnpj(linkQcnpjDaEmpresa);
         qcnpj.informacoesDaEmpresa(function(dadosDaEmpresa) {
-            console.log("Resposta: " + dadosDaEmpresa);
+            //res.jsonp(dadosDaEmpresa);
             res.status(200).send(dadosDaEmpresa);
         });
     });
+
 });
+
 module.exports = router;
