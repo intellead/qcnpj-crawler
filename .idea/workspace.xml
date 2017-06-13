@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb1d3f8c-c36e-4803-8885-89d2047c105a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Google.js" afterPath="$PROJECT_DIR$/src/Google.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Qcnpj.js" afterPath="$PROJECT_DIR$/src/Qcnpj.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.jade" afterPath="$PROJECT_DIR$/views/index.jade" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -313,12 +308,12 @@
       <workItem from="1497277714634" duration="14287000" />
       <workItem from="1497353027605" duration="10068000" />
       <workItem from="1497369227161" duration="7730000" />
-      <workItem from="1497380332435" duration="8316000" />
+      <workItem from="1497380332435" duration="8910000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40401000" />
+    <option name="totallyTimeSpent" value="40995000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
