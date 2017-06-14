@@ -13,7 +13,6 @@ class Empresa {
                 code: atividade_principal_code
             }
         ];
-        //this.atividade_principal = atividade_principal;
         this.situacao = situacao;
         this.capital_social = capital_social;
         this.telefone = telefone;
