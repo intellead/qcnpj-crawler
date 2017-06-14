@@ -4,21 +4,27 @@
 
 class Empresa {
 
-    constructor (nome, cnpj, atividadePrincipal, situacao, capitalSocial, telefone) {
+    constructor (nome, cnpj, atividade_principal_text, atividade_principal_code, situacao, capital_social, telefone) {
         this.nome = nome;
         this.cnpj = cnpj;
-        this.atividadePrincipal = atividadePrincipal;
+        this.atividade_principal = [
+            {
+                text: atividade_principal_text,
+                code: atividade_principal_code
+            }
+        ];
+        //this.atividade_principal = atividade_principal;
         this.situacao = situacao;
-        this.capitalSocial = capitalSocial;
+        this.capital_social = capital_social;
         this.telefone = telefone;
     }
 
     toString () {
         return  "Nome: " + this.nome + "\n" +
                 "CNPJ: " + this.cnpj + "\n" +
-                "Atividade Principal: " + this.atividadePrincipal + "\n" +
+                "Atividade Principal: " + this.atividade_principal + "\n" +
                 "Situação: " + this.situacao + "\n" +
-                "Capital Social: " + this.capitalSocial + "\n" +
+                "Capital Social: " + this.capital_social + "\n" +
                 "Telefone: " + this.telefone + "\n";
     }
 

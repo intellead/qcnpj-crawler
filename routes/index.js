@@ -15,7 +15,6 @@ router.get('/', function(req, res, next) {
     google.searchQcnpjLink(function(linkQcnpjDaEmpresa) {
         var qcnpj = new Qcnpj(linkQcnpjDaEmpresa);
         qcnpj.informacoesDaEmpresa(function(dadosDaEmpresa) {
-            //res.jsonp(dadosDaEmpresa);
             res.status(200).send(dadosDaEmpresa);
         });
     });
