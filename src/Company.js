@@ -1,6 +1,4 @@
-'use strict';/**
- * Created by vinigomes on 13/06/2017.
- */
+'use strict';
 
 class Company {
 
