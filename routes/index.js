@@ -14,8 +14,11 @@ router.get('/', function(req, res, next) {
         return res.render('index', { title: 'qcnpj-crawler' });
     }
     var google = new Google(nomeDaEmpresa);
+    console.log('here2');
     google.searchQcnpjLink(function(linkQcnpjDaEmpresa) {
+        console.log('here3');
         var qcnpj = new Qcnpj(linkQcnpjDaEmpresa);
+        console.log('here4');
         qcnpj.informacoesDaEmpresa(function(dadosDaEmpresa) {
             console.log(dadosDaEmpresa);
             res.status(200).send(dadosDaEmpresa);
