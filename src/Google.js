@@ -1,17 +1,17 @@
 'use strict'
 var request = require('request');
 var cheerio = require('cheerio');
-var Empresa = require('../src/Empresa');
+var Company = require('./Company');
 
 
 class Google {
 
-    constructor(nomeDaEmpresa) {
-        this._nomeDaEmpresa = nomeDaEmpresa;
+    constructor(companyName) {
+        this._companyName = companyName;
     }
 
     searchQcnpjLink(callback){
-        var query = 'qcnpj ' + this._nomeDaEmpresa;
+        var query = 'qcnpj ' + this._companyName;
         var pageToVisit = "https://www.google.com/search?gws_rd=ssl&site=&source=hp&q="+query+"&oq="+query;
         request(pageToVisit, function(error, response, body) {
             if(error) {
