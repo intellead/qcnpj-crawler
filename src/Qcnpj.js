@@ -10,9 +10,9 @@ class Qcnpj {
 
     companyInformation(callback){
         request(this.link, function(error, response, body) {
-            if(error) {
+            if(error || response.statusCode != 200) {
                 console.log("Error: " + error);
-                return;
+                return callback(response.statusCode);
             }
             if(response.statusCode === 200) {
                 var $ = cheerio.load(body);
@@ -25,7 +25,7 @@ class Qcnpj {
                 let social_capital = $("li:contains('Capital Social')").children().text();
                 let telephone = $("li:contains('Telefone')").children().text();
                 var company = new Company(company_name, cnpj, main_activity_name, main_activity_code, situation, social_capital, telephone);
-                return callback(company);
+                return callback(response.statusCode, company);
             }
         });
     }

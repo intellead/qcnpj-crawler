@@ -12,10 +12,10 @@ router.get('/', function(req, res, next) {
         return res.render('index', { title: 'qcnpj-crawler' });
     }
     var google = new Google(companyName);
-    google.searchQcnpjLink(function(linkQcnpjDaEmpresa) {
+    google.searchQcnpjLink(function(statusCode, linkQcnpjDaEmpresa) {
         var qcnpj = new Qcnpj(linkQcnpjDaEmpresa);
-        qcnpj.companyInformation(function(dadosDaEmpresa) {
-            res.status(200).send(dadosDaEmpresa);
+        qcnpj.companyInformation(function(statusCode, dadosDaEmpresa) {
+            res.status(statusCode).send(dadosDaEmpresa);
         });
     });
 
