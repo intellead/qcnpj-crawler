@@ -13,7 +13,6 @@ class Google {
     searchQcnpjLink(callback){
         var query = 'qcnpj ' + this._companyName;
         var pageToVisit = "https://www.google.com/search?gws_rd=ssl&site=&source=hp&q="+query+"&oq="+query;
-        console.log("pageToVisit: "+pageToVisit);
         request(pageToVisit, function(error, response, body) {
             if(error) {
                 console.log("Error: " + error);
@@ -29,15 +28,12 @@ class Google {
                     let linkItem = $(this).find("a").attr("href");
                     if (!achou & linkItem.includes('qcnpj.com.br')) {
                         googleHref = linkItem;
-                        console.log("googleHref: "+googleHref);
                         achou = true;
                     }
                 });
                 if (googleHref != '' && googleHref != undefined) {
                     var link1 = googleHref.substr(googleHref.indexOf("http"), googleHref.length);
-                    console.log("link1: "+link1);
                     var link = link1.substr(0, link1.indexOf("&sa="));
-                    console.log("link: "+link);
                     if (link.includes('qcnpj')) {
                         return callback(200, link);
                     }
