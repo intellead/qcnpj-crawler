@@ -14,11 +14,13 @@ router.get('/', function(req, res, next) {
     }
     var google = new Google(companyName);
     google.searchQcnpjLink(function(statusCode, linkQcnpjDaEmpresa) {
-        console.log("linkQcnpjDaEmpresa: "+linkQcnpjDaEmpresa);
-        var qcnpj = new Qcnpj(linkQcnpjDaEmpresa);
-        qcnpj.companyInformation(function(statusCode, dadosDaEmpresa) {
-            res.status(statusCode).send(dadosDaEmpresa);
-        });
+        if (statusCode == 200) {
+            console.log("linkQcnpjDaEmpresa: "+linkQcnpjDaEmpresa);
+            var qcnpj = new Qcnpj(linkQcnpjDaEmpresa);
+            qcnpj.companyInformation(function(statusCode, dadosDaEmpresa) {
+                res.status(statusCode).send(dadosDaEmpresa);
+            });
+        }
     });
 
 });
