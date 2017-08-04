@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
     var params = url.parse(req.url, true).query;
     var companyName = params.companyName;
     if (companyName == '' || companyName == undefined) {
+        res.sendStatus(422);
         return res.render('index', { title: 'qcnpj-crawler' });
     }
     var google = new Google(companyName);
