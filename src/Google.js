@@ -20,6 +20,7 @@ class Google {
                 return callback(response.statusCode);
             }
             if(response.statusCode === 200) {
+                console.log("Entrou");
                 var $ = cheerio.load(body);
                 $("h3").find("a").attr("href");
                 var googleHref = '';
