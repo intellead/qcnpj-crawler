@@ -28,6 +28,7 @@ class Google {
                 //return the first link result of google search to the company name in qcnpj
                 $( "h3" ).each(function( index ) {
                     let linkItem = $(this).find("a").attr("href");
+                    console.log(linkItem);
                     if (!achou & linkItem.includes('qcnpj.com.br')) {
                         googleHref = linkItem;
                         console.log(googleHref);
