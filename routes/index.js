@@ -4,7 +4,6 @@ var url = require('url');
 var Qcnpj = require('../src/Qcnpj');
 var Google = require('../src/Google');
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
     var params = url.parse(req.url, true).query;
     var companyName = params.companyName;
