@@ -11,7 +11,9 @@ class Qcnpj {
     companyInformation(callback){
         request(this.link, function(error, response, body) {
             if(error || response.statusCode != 200) {
-                console.log("Error: " + error);
+                if (error) {
+                    console.log("Error: " + error);
+                }
                 return callback(response.statusCode);
             }
             if(response.statusCode === 200) {
