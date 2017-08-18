@@ -23,13 +23,12 @@ class Google {
                 var $ = cheerio.load(body);
                 $("h3").find("a").attr("href");
                 var googleHref = '';
-                var achou = false;
-                //return the first link result of google search to the company name in qcnpj
+                var found = false;
                 $( "h3" ).each(function( index ) {
                     let linkItem = $(this).find("a").attr("href");
-                    if (!achou & linkItem.includes('qcnpj.com.br')) {
+                    if (!found & linkItem.includes('qcnpj.com.br')) {
                         googleHref = linkItem;
-                        achou = true;
+                        found = true;
                     }
                 });
                 if (googleHref != '' && googleHref != undefined) {
@@ -38,10 +37,14 @@ class Google {
                     console.log("Link: " + link);
                     if (link.includes('qcnpj')) {
                         return callback(200, link);
+                    } else {
+                        return callback(204);
                     }
                 } else {
                     return callback(204);
                 }
+            } else {
+                return callback(response.statusCode);
             }
         });
     }

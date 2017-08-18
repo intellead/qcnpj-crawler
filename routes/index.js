@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
     var params = url.parse(req.url, true).query;
     var companyName = params.companyName;
     console.log("Company: " + companyName);
-    if (companyName == '' || companyName == undefined) {
+    if (companyName == undefined || companyName == '') {
         res.sendStatus(422);
         return res.render('index', { title: 'qcnpj-crawler' });
     }
@@ -17,8 +17,10 @@ router.get('/', function(req, res, next) {
         if (statusCode == 200) {
             var qcnpj = new Qcnpj(linkQcnpjDaEmpresa);
             qcnpj.companyInformation(function(statusCode, dadosDaEmpresa) {
-                res.status(statusCode).send(dadosDaEmpresa);
+                return res.status(statusCode).send(dadosDaEmpresa);
             });
+        } else {
+            return res.sendStatus(statusCode);
         }
     });
 
