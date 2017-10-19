@@ -5,6 +5,8 @@ var anapro_company_data = require('./anapro_company_data.json');
 
 describe('/', function() {
 
+    this.timeout(15000);
+
     after(function () {
         server.close();
     });
