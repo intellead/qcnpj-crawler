@@ -16,8 +16,6 @@ COPY routes/ ./routes
 
 COPY src/ ./src
 
-COPY views/ ./views
-
 EXPOSE 3000
 
 CMD ["npm", "start"]
