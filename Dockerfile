@@ -12,8 +12,6 @@ COPY bin/ ./bin
 
 COPY public/stylesheets/ ./public/stylesheets
 
-COPY routes/ ./routes
-
 COPY src/ ./src
 
 EXPOSE 3000
