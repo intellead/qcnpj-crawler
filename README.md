@@ -1,20 +1,18 @@
-<h1>QCNPJ Crawler</h1>
+# QCNPJ Crawler
 
+[![Build Status](https://travis-ci.org/intellead/qcnpj-crawler.svg?branch=master)](https://travis-ci.org/intellead/qcnpj-crawler)
+[![codecov](https://codecov.io/gh/intellead/qcnpj-crawler/branch/master/graph/badge.svg)](https://codecov.io/gh/intellead/qcnpj-crawler)
 
 QCNPJ Crawler aims to be an service to provide information about company.
 
-<h2>Description</h2>
+## Description
 
 This service it is one of the services to enrich lead information for intellead ecosystem. This is called by the intellead-enrich that centralizes the enrichment of the lead.
 
-<h2>JavaScript</h2>
+## Documentation
 
-This project use node.js.
+Project documentation is available at [DOCUMENTATION.md](./DOCUMENTATION.md).
 
-<h2>Documentation</h2>
+## Contributing
 
-Project documentation is available at <a href="https://github.com/intellead/qcnpj-crawler/blob/master/DOCUMENTATION.md">DOCUMENTATION.md</a>.
-
-<h2>Contributing</h2>
-
-See the <a href="https://github.com/intellead/qcnpj-crawler/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> document for details.
+See the [CONTRIBUTING.md](./CONTRIBUTING.md) document for details.
