@@ -21,8 +21,12 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var index = require('./routes/index');
 var app = express();
+var url = require('url');
+var Qcnpj = require('./src/Qcnpj');
+var Google = require('./src/Google');
+var request = require('request');
+var securityUrl = process.env.SECURITY_URL || 'http://intellead-security:8080/auth';
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -30,7 +34,28 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+app.get('/', function(req, res, next) {
+    request({ url: securityUrl + '/' + req.header('token')}, function(error, response, authBody) {
+        if (response.statusCode != 200) return res.sendStatus(403);
+        var params = url.parse(req.url, true).query;
+        var companyName = params.companyName;
+        console.log("Company: " + companyName);
+        if (companyName == undefined || companyName == '') {
+            return res.sendStatus(422);
+        }
+        var google = new Google(companyName);
+        google.searchQcnpjLink(function (statusCode, linkQcnpjDaEmpresa) {
+            if (statusCode == 200) {
+                var qcnpj = new Qcnpj(linkQcnpjDaEmpresa);
+                qcnpj.companyInformation(function (statusCode, dadosDaEmpresa) {
+                    return res.status(statusCode).send(dadosDaEmpresa);
+                });
+            } else {
+                return res.sendStatus(statusCode);
+            }
+        });
+    });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
